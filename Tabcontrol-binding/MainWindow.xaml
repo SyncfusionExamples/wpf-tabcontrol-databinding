@@ -15,17 +15,18 @@
     <Grid>
         <syncfusion:TabControlExt Name="tabControl" Height="100" Width="280"
                                   ItemsSource="{Binding Path=TabItems}"
-                                  EnableLabelEdit="{Binding EnableLabelEdit}"
-                                  CloseButtonType="{Binding CloseButtonType}">
-
-            <syncfusion:TabControlExt.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Header, Mode=TwoWay}" />
-                </DataTemplate>
-            </syncfusion:TabControlExt.ItemTemplate>
+                                  EnableLabelEdit="True"
+                                  >
 
             <syncfusion:TabControlExt.ItemContainerStyle>
                 <Style TargetType="syncfusion:TabItemExt">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Header, Mode=TwoWay}" Grid.Column="1" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Content" Value="{Binding Content, Mode=TwoWay}" />
                     <Setter Property="Image" Value="{Binding Image, Mode=TwoWay}" />
                     <Setter Property="ImageHeight" Value="21" />
